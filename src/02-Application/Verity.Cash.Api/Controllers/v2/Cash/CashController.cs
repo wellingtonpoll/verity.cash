@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Verity.Cash.Api.Controllers.v2.Cash;
 
 [ApiController]
-[ApiVersion("2")]
+[ApiVersion("2", Deprecated = true)]
 [Produces("application/json")]
 [Route("api/v{version:apiVersion}/cash")]
 public class CashController : ControllerBase

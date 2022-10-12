@@ -9,6 +9,8 @@ builder.Services.AddApiVersionConfiguration();
 
 builder.Services.AddSwaggerConfiguration();
 
+builder.Services.AddDependencyInjectionConfiguration();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
