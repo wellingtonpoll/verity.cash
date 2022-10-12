@@ -5,17 +5,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Configure Services
 builder.Services.AddControllers();
 
-builder.Services.AddRouting(c => c.LowercaseUrls  = true);
+builder.Services.AddApiVersionConfiguration();
 
 builder.Services.AddSwaggerConfiguration();
 
 var app = builder.Build();
 
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwaggerSetup();
+    app.UseApiVersionSetup();
 }
 
 app.UseHttpsRedirection();
