@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CFE0D3EE-3361-446F-B3D5-3F39C8D60C54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Application", "02-Application", "{622CFF8B-68D0-4EE4-A110-2F69CFAE3FBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Verity.Cash.Api", "src\02-Application\Verity.Cash.Api\Verity.Cash.Api.csproj", "{7A540426-A0E7-4FDF-BE20-1C5FBED230A9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A540426-A0E7-4FDF-BE20-1C5FBED230A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A540426-A0E7-4FDF-BE20-1C5FBED230A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A540426-A0E7-4FDF-BE20-1C5FBED230A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A540426-A0E7-4FDF-BE20-1C5FBED230A9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{622CFF8B-68D0-4EE4-A110-2F69CFAE3FBA} = {CFE0D3EE-3361-446F-B3D5-3F39C8D60C54}
+		{7A540426-A0E7-4FDF-BE20-1C5FBED230A9} = {622CFF8B-68D0-4EE4-A110-2F69CFAE3FBA}
+	EndGlobalSection
+EndGlobal
