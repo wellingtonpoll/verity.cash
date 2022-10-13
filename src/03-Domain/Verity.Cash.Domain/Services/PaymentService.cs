@@ -5,7 +5,6 @@ namespace Verity.Cash.Domain.Services
 {
     public class PaymentService : IPaymentService
     {
-        private bool disposedValue;
         private readonly IPaymentRepository _paymentRepository;
 
         public PaymentService(IPaymentRepository paymentRepository)
@@ -19,23 +18,24 @@ namespace Verity.Cash.Domain.Services
             return payment;
         }
 
-        protected virtual void Dispose(bool disposing)
+        public async Task<DailyConsolidatedPayment> GetDailyConsolidatedAsync(DateTime date)
         {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    // TODO: dispose managed state (managed objects)
-                }
+            var payments = await _paymentRepository.GetDailyConsolidatedAsync(date);
 
-                disposedValue = true;
-            }
-        }
+            var cashInPayments = payments.Where(c => c.PaymentType == Enums.PaymentType.CashIn);
+            var cashOutPayments = payments.Where(c => c.PaymentType == Enums.PaymentType.CashOut);
+
+            var dailyConsolidatedPayments = new DailyConsolidatedPayment(
+                    date, 
+                    cashInPayments.Count(), 
+                    cashInPayments.Sum(c => c.Amount), 
+                    cashOutPayments.Count(), 
+                    cashOutPayments.Sum(c => c.Amount));
+
+            return dailyConsolidatedPayments;
+        }   
 
         public void Dispose()
-        {
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
-        }
+            => GC.SuppressFinalize(this);
     }
 }
