@@ -6,15 +6,17 @@ namespace Verity.Cash.Domain.Services
     public class PaymentService : IPaymentService
     {
         private bool disposedValue;
+        private readonly IPaymentRepository _paymentRepository;
 
-        public PaymentService()
+        public PaymentService(IPaymentRepository paymentRepository)
         {
-
+            _paymentRepository = paymentRepository;
         }
 
         public async Task<Payment> AddAsync(Payment payment)
         {
-            return await Task.FromResult(payment);
+            await _paymentRepository.AddAsync(payment);
+            return payment;
         }
 
         protected virtual void Dispose(bool disposing)

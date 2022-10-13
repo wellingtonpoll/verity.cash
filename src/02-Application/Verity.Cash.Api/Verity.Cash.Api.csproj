@@ -14,5 +14,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\03-Domain\Verity.Cash.Domain\Verity.Cash.Domain.csproj" />
+    <ProjectReference Include="..\..\04-Infra\Verity.Cash.Infra\Verity.Cash.Infra.csproj" />
   </ItemGroup>
 </Project>
