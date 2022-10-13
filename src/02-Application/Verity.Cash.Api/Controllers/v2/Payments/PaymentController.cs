@@ -55,4 +55,14 @@ public class PaymentController : ControllerBase
 
         return Created(nameof(PostPaymentCashInAsync), responseModel);
     }
+
+    [HttpGet("consolidated/{date}")]
+    [ProducesResponseType(typeof(PaymentModel), 201)]
+    [ProducesResponseType(typeof(ErrorModel), 400)]
+    [ProducesResponseType(typeof(ErrorModel), 500)]
+    public async Task<IActionResult> GetConsolidatedDailyAsync([FromRoute] DateTime date)
+    {
+        var payments = await _paymentService.GetDailyConsolidatedAsync(date);
+        return await Task.FromResult(Ok(payments));
+    }
 }
